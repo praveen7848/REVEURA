@@ -279,19 +279,19 @@ export default function HabitsPage() {
           ))}
         </div>
 
-        <div className="relative z-10 p-8">
+        <div className="relative z-10 p-4 sm:p-6 md:p-8">
           {/* Header */}
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            className="mb-8"
+            className="mb-6 sm:mb-8"
           >
-            <div className="flex items-center justify-between mb-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
               <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-2">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-2">
                   Habit Tracker
                 </h1>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-xs sm:text-sm">
                   {habits.length} habits · {habits.filter(h => h.isFavorite).length} favorites
                 </p>
               </div>
@@ -303,27 +303,27 @@ export default function HabitsPage() {
                   playClickSound();
                   startNewHabit();
                 }}
-                className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl flex items-center gap-2 cursor-pointer font-semibold"
+                className="w-full sm:w-auto px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-xl flex items-center justify-center gap-2 cursor-pointer font-semibold text-sm sm:text-base"
               >
-                <Plus className="w-5 h-5" />
+                <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                 Add Habit
-                <Sparkles className="w-5 h-5" />
+                <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
               </motion.button>
             </div>
 
             {/* Stats */}
-            <div className="grid grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-6">
               <motion.div
                 whileHover={{ y: -5 }}
-                className="bg-gradient-to-br from-purple-500/10 to-violet-500/10 backdrop-blur-xl rounded-2xl p-6 border border-purple-200/20"
+                className="bg-gradient-to-br from-purple-500/10 to-violet-500/10 backdrop-blur-xl rounded-2xl p-4 sm:p-6 border border-purple-200/20"
               >
-                <div className="flex items-center gap-3 mb-2">
-                  <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center">
-                    <Target className="w-6 h-6 text-white" />
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-2 sm:gap-3 mb-2">
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-xl bg-gradient-to-br from-purple-500 to-violet-600 flex items-center justify-center">
+                    <Target className="w-5 h-5 sm:w-6 sm:h-6 text-white" />
                   </div>
                   <div>
-                    <p className="text-sm text-gray-400">Active Habits</p>
-                    <p className="text-3xl font-bold text-white">{habits.length}</p>
+                    <p className="text-xs sm:text-sm text-gray-400">Active Habits</p>
+                    <p className="text-2xl sm:text-3xl font-bold text-white">{habits.length}</p>
                   </div>
                 </div>
               </motion.div>

@@ -232,19 +232,19 @@ export default function JournalPage() {
           ))}
         </div>
 
-        <div className="relative z-10 p-8">
-          <motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} className="mb-8">
-            <div className="flex items-center justify-between mb-8">
+        <div className="relative z-10 p-4 sm:p-6 md:p-8">
+          <motion.div initial={{ opacity: 0, y: -50 }} animate={{ opacity: 1, y: 0 }} className="mb-6 sm:mb-8">
+            <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
               <div>
-                <h1 className="text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-2">
+                <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 bg-clip-text text-transparent mb-2">
                   My Journey
                 </h1>
-                <p className="text-gray-400 text-sm">
+                <p className="text-gray-400 text-xs sm:text-sm">
                   {entries.length} entries · {entries.filter(e => e.isFavorite).length} favorites
                 </p>
               </div>
 
-              <div className="flex gap-4">
+              <div className="flex gap-2 sm:gap-4 w-full sm:w-auto">
                 <motion.button
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
@@ -252,12 +252,12 @@ export default function JournalPage() {
                     playClickSound();
                     setShowAnalytics(!showAnalytics);
                   }}
-                  className={`px-5 py-2.5 rounded-xl flex items-center gap-2 cursor-pointer text-sm font-semibold ${
+                  className={`flex-1 sm:flex-none px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm font-semibold ${
                     showAnalytics ? 'bg-gradient-to-r from-cyan-600 to-blue-600 text-white shadow-cyan-500/50' : 'bg-gradient-to-r from-cyan-500 to-blue-500 text-white'
                   }`}
                 >
-                  <Activity className="w-5 h-5" />
-                  Analytics
+                  <Activity className="w-4 h-4 sm:w-5 sm:h-5" />
+                  <span className="hidden sm:inline">Analytics</span>
                 </motion.button>
 
                 <motion.button
@@ -267,16 +267,16 @@ export default function JournalPage() {
                     playClickSound();
                     startNewEntry();
                   }}
-                  className="px-6 py-2.5 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 text-white rounded-xl flex items-center gap-2 cursor-pointer text-sm font-semibold"
+                  className="flex-1 sm:flex-none px-4 sm:px-6 py-2 sm:py-2.5 bg-gradient-to-r from-purple-600 via-pink-500 to-orange-500 text-white rounded-xl flex items-center justify-center gap-2 cursor-pointer text-xs sm:text-sm font-semibold"
                 >
-                  <Plus className="w-5 h-5" />
+                  <Plus className="w-4 h-4 sm:w-5 sm:h-5" />
                   New Entry
-                  <Sparkles className="w-5 h-5" />
+                  <Sparkles className="w-4 h-4 sm:w-5 sm:h-5" />
                 </motion.button>
               </div>
             </div>
 
-            <div className="flex gap-3 mb-6">
+            <div className="flex gap-2 sm:gap-3 mb-6 overflow-x-auto pb-2">
               {[
                 { mode: 'grid', label: 'Grid', icon: BarChart3 },
                 { mode: 'timeline', label: 'Timeline', icon: Activity },
@@ -290,13 +290,13 @@ export default function JournalPage() {
                     playClickSound();
                     setViewMode(mode as any);
                   }}
-                  className={`px-5 py-2.5 rounded-xl flex items-center gap-2 cursor-pointer text-sm ${
+                  className={`px-3 sm:px-5 py-2 sm:py-2.5 rounded-xl flex items-center gap-2 cursor-pointer text-xs sm:text-sm whitespace-nowrap ${
                     viewMode === mode
                       ? 'bg-gradient-to-r from-purple-600 to-pink-500 text-white shadow-xl'
                       : 'bg-gray-800/50 text-white'
                   }`}
                 >
-                  <Icon className="w-4 h-4" />
+                  <Icon className="w-3 h-3 sm:w-4 sm:h-4" />
                   {label}
                 </motion.button>
               ))}

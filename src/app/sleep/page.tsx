@@ -129,7 +129,7 @@ export default function Sleep() {
           <motion.div
             initial={{ y: -20, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
-            className="relative overflow-hidden rounded-3xl h-64 group"
+            className="relative overflow-hidden rounded-2xl sm:rounded-3xl h-48 sm:h-56 md:h-64 group"
           >
             <motion.div
               whileHover={{ scale: 1.05 }}
@@ -156,41 +156,41 @@ export default function Sleep() {
                   rotate: [0, 5, 0],
                 }}
                 transition={{ duration: 6, repeat: Infinity }}
-                className="absolute top-8 right-12"
+                className="absolute top-4 right-4 sm:top-8 sm:right-12"
               >
-                <div className="relative w-24 h-24 rounded-full bg-gradient-to-br from-yellow-200 to-yellow-400 shadow-2xl shadow-yellow-500/50">
+                <div className="relative w-16 h-16 sm:w-20 sm:h-20 md:w-24 md:h-24 rounded-full bg-gradient-to-br from-yellow-200 to-yellow-400 shadow-2xl shadow-yellow-500/50">
                   <motion.div
                     animate={{ opacity: [0.5, 1, 0.5] }}
                     transition={{ duration: 3, repeat: Infinity }}
                     className="absolute inset-0 rounded-full bg-gradient-to-br from-white/20 to-transparent"
                   />
-                  <Moon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 text-white" />
+                  <Moon className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-8 h-8 sm:w-10 sm:h-10 md:w-12 md:h-12 text-white" />
                 </div>
               </motion.div>
 
-              <div className="absolute inset-0 flex items-center px-12">
+              <div className="absolute inset-0 flex items-center px-4 sm:px-8 md:px-12">
                 <div>
                   <motion.div
                     initial={{ x: -50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.2 }}
-                    className="flex items-center gap-3 mb-3"
+                    className="flex items-center gap-2 sm:gap-3 mb-2 sm:mb-3"
                   >
-                    <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-2xl shadow-blue-500/50">
-                      <BedDouble className="w-8 h-8 text-white" />
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-2xl shadow-blue-500/50">
+                      <BedDouble className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                     </div>
                     <div>
-                      <h1 className="text-5xl font-bold text-white">
+                      <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold text-white">
                         Sleep Analytics
                       </h1>
-                      <p className="text-blue-100 text-sm">Powered by advanced sleep science</p>
+                      <p className="text-blue-100 text-xs sm:text-sm">Powered by advanced sleep science</p>
                     </div>
                   </motion.div>
                   <motion.p
                     initial={{ x: -50, opacity: 0 }}
                     animate={{ x: 0, opacity: 1 }}
                     transition={{ delay: 0.3 }}
-                    className="text-white/90 text-lg max-w-2xl"
+                    className="text-white/90 text-sm sm:text-base md:text-lg max-w-2xl hidden sm:block"
                   >
                     Track, analyze, and optimize your sleep patterns for peak performance
                   </motion.p>
