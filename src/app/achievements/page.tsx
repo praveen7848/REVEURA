@@ -386,12 +386,12 @@ export default function AchievementsPage() {
           <div className="absolute inset-0 bg-[linear-gradient(rgba(255,255,255,0.02)_1px,transparent_1px),linear-gradient(90deg,rgba(255,255,255,0.02)_1px,transparent_1px)] bg-[size:50px_50px]" />
         </div>
 
-        <div className="relative z-10 p-8 space-y-8">
+        <div className="relative z-10 p-4 sm:p-6 md:p-8 space-y-6 sm:space-y-8">
           {/* Epic Header */}
           <motion.div
             initial={{ opacity: 0, y: -50 }}
             animate={{ opacity: 1, y: 0 }}
-            className="text-center mb-12"
+            className="text-center mb-8 sm:mb-12"
           >
             {/* Floating Trophy */}
             <motion.div
@@ -403,12 +403,12 @@ export default function AchievementsPage() {
                 y: { duration: 3, repeat: Infinity, ease: 'easeInOut' },
                 rotateY: { duration: 8, repeat: Infinity, ease: 'linear' },
               }}
-              className="inline-block mb-6"
+              className="inline-block mb-4 sm:mb-6"
               style={{ perspective: 1000 }}
             >
               <div className="relative">
-                <div className="w-32 h-32 bg-gradient-to-br from-yellow-400 via-amber-500 to-orange-600 rounded-3xl flex items-center justify-center shadow-2xl shadow-yellow-500/50 transform rotate-3">
-                  <Trophy className="w-16 h-16 text-white drop-shadow-lg" />
+                <div className="w-20 h-20 sm:w-28 sm:h-28 md:w-32 md:h-32 bg-gradient-to-br from-yellow-400 via-amber-500 to-orange-600 rounded-2xl sm:rounded-3xl flex items-center justify-center shadow-2xl shadow-yellow-500/50 transform rotate-3">
+                  <Trophy className="w-10 h-10 sm:w-14 sm:h-14 md:w-16 md:h-16 text-white drop-shadow-lg" />
                 </div>
                 {/* Sparkle effects */}
                 {[...Array(6)].map((_, i) => (
@@ -436,14 +436,14 @@ export default function AchievementsPage() {
             </motion.div>
 
             <motion.h1 
-              className="text-6xl font-black mb-4"
+              className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black mb-3 sm:mb-4"
               style={{ fontFamily: "'Playfair Display', serif" }}
             >
               <span className="bg-gradient-to-r from-yellow-300 via-amber-400 to-orange-500 bg-clip-text text-transparent">
                 Hall of Achievements
               </span>
             </motion.h1>
-            <p className="text-gray-400 text-xl max-w-2xl mx-auto">
+            <p className="text-gray-400 text-sm sm:text-base md:text-lg lg:text-xl max-w-2xl mx-auto px-4">
               Your legendary journey awaits. Unlock achievements, earn rewards, and become a wellness master.
             </p>
           </motion.div>
@@ -452,25 +452,25 @@ export default function AchievementsPage() {
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            className="grid grid-cols-4 gap-6 mb-8"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 md:gap-6 mb-6 sm:mb-8"
           >
             {/* Level Card */}
-            <TiltCard className="bg-gradient-to-br from-purple-900/50 to-indigo-900/50 backdrop-blur-xl border border-purple-500/30 rounded-3xl p-6 shadow-xl shadow-purple-500/20">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
-                  <Hexagon className="w-8 h-8 text-white" />
+            <TiltCard className="bg-gradient-to-br from-purple-900/50 to-indigo-900/50 backdrop-blur-xl border border-purple-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xl shadow-purple-500/20">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-purple-500 to-pink-500 flex items-center justify-center shadow-lg shadow-purple-500/30">
+                  <Hexagon className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <p className="text-purple-300 text-sm font-medium">Current Level</p>
-                  <p className="text-white font-black" style={{ fontFamily: "var(--font-heading)", fontSize: "var(--font-display-md)" }}>{level}</p>
+                  <p className="text-purple-300 text-xs sm:text-sm font-medium">Current Level</p>
+                  <p className="text-white font-black text-2xl sm:text-3xl md:text-4xl" style={{ fontFamily: "var(--font-heading)" }}>{level}</p>
                 </div>
               </div>
-              <div className="mt-4">
-                <div className="flex justify-between text-sm mb-2">
+              <div className="mt-3 sm:mt-4">
+                <div className="flex justify-between text-xs sm:text-sm mb-2">
                   <span className="text-purple-300">Progress</span>
                   <span className="text-white font-bold">{totalXP % 500} / 500</span>
                 </div>
-                <div className="h-3 bg-purple-950 rounded-full overflow-hidden">
+                <div className="h-2 sm:h-3 bg-purple-950 rounded-full overflow-hidden">
                   <motion.div
                     initial={{ width: 0 }}
                     animate={{ width: `${xpProgress}%` }}
@@ -488,14 +488,14 @@ export default function AchievementsPage() {
             </TiltCard>
 
             {/* Total XP Card */}
-            <TiltCard className="bg-gradient-to-br from-yellow-900/50 to-amber-900/50 backdrop-blur-xl border border-yellow-500/30 rounded-3xl p-6 shadow-xl shadow-yellow-500/20">
-              <div className="flex items-center gap-4">
-                <div className="w-16 h-16 rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center shadow-lg shadow-yellow-500/30">
-                  <Gem className="w-8 h-8 text-white" />
+            <TiltCard className="bg-gradient-to-br from-yellow-900/50 to-amber-900/50 backdrop-blur-xl border border-yellow-500/30 rounded-2xl sm:rounded-3xl p-4 sm:p-6 shadow-xl shadow-yellow-500/20">
+              <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
+                <div className="w-12 h-12 sm:w-14 sm:h-14 md:w-16 md:h-16 rounded-xl sm:rounded-2xl bg-gradient-to-br from-yellow-400 to-amber-500 flex items-center justify-center shadow-lg shadow-yellow-500/30">
+                  <Gem className="w-6 h-6 sm:w-7 sm:h-7 md:w-8 md:h-8 text-white" />
                 </div>
                 <div>
-                  <p className="text-yellow-300 text-sm font-medium">Total XP</p>
-                  <p className="text-white font-black" style={{ fontFamily: "var(--font-heading)", fontSize: "var(--font-display-md)" }}>{totalXP.toLocaleString()}</p>
+                  <p className="text-yellow-300 text-xs sm:text-sm font-medium">Total XP</p>
+                  <p className="text-white font-black text-2xl sm:text-3xl md:text-4xl" style={{ fontFamily: "var(--font-heading)" }}>{totalXP.toLocaleString()}</p>
                 </div>
               </div>
               {unclaimedXP > 0 && (
@@ -567,7 +567,7 @@ export default function AchievementsPage() {
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            className="flex gap-3 flex-wrap mb-8"
+            className="flex gap-2 sm:gap-3 overflow-x-auto pb-2 mb-6 sm:mb-8 scrollbar-hide"
           >
             {CATEGORIES.map((category) => (
               <motion.button
@@ -578,7 +578,7 @@ export default function AchievementsPage() {
                 }}
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
-                className={`px-6 py-3 rounded-2xl font-bold transition-all ${
+                className={`px-4 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl text-sm sm:text-base font-bold transition-all whitespace-nowrap flex-shrink-0 ${
                   selectedCategory === category
                     ? 'bg-gradient-to-r from-purple-500 to-pink-500 text-white shadow-lg shadow-purple-500/30'
                     : 'bg-white/5 text-gray-300 hover:bg-white/10 border border-white/10 hover:text-white'
@@ -592,7 +592,7 @@ export default function AchievementsPage() {
           {/* Achievements Grid */}
           <motion.div 
             layout
-            className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6"
+            className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 sm:gap-6"
           >
             <AnimatePresence mode="popLayout">
               {filteredAchievements.map((achievement, index) => {

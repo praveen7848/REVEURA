@@ -142,30 +142,30 @@ export default function InspirationPage() {
               initial={{ scale: 0 }}
               animate={{ scale: 1 }}
               transition={{ delay: 0.2, type: "spring", stiffness: 100 }}
-              className="inline-block mb-6"
+              className="inline-block mb-4 sm:mb-6"
             >
-              <div className={`text-7xl filter drop-shadow-xl`}>
+              <div className={`text-5xl sm:text-6xl md:text-7xl filter drop-shadow-xl`}>
                 ✨
               </div>
             </motion.div>
-            <h1 className={`font-black mb-4 tracking-tight ${
+            <h1 className={`font-black mb-3 sm:mb-4 tracking-tight text-3xl sm:text-4xl md:text-5xl ${
               theme === 'dark'
                 ? 'bg-gradient-to-r from-white via-purple-200 to-blue-200 bg-clip-text text-transparent'
                 : 'bg-gradient-to-r from-gray-900 via-purple-700 to-blue-700 bg-clip-text text-transparent'
-            }`} style={{ fontFamily: "var(--font-display)", fontSize: "var(--font-display-md)" }}>
+            }`} style={{ fontFamily: "var(--font-display)" }}>
               Inspiration
             </h1>
-            <p className={`font-light mb-2 ${theme === 'dark' ? 'text-neutral-300' : 'text-gray-700'}`} style={{ fontFamily: "var(--font-body)", fontSize: "var(--font-body-lg)" }}>
+            <p className={`font-light mb-2 text-sm sm:text-base md:text-lg ${theme === 'dark' ? 'text-neutral-300' : 'text-gray-700'}`} style={{ fontFamily: "var(--font-body)" }}>
               100 mindful quotes to elevate your consciousness
             </p>
-            <div className="flex items-center justify-center gap-4 text-sm font-medium mt-6">
+            <div className="flex items-center justify-start sm:justify-center gap-2 sm:gap-4 text-xs sm:text-sm font-medium mt-4 sm:mt-6 overflow-x-auto pb-2 scrollbar-hide">
               {quoteSections.map((section, i) => (
                 <motion.button
                   key={i}
                   onClick={() => setActiveSection(i)}
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
-                  className={`group px-6 py-3 rounded-2xl transition-all backdrop-blur-xl flex items-center gap-3 ${
+                  className={`group px-3 sm:px-6 py-2 sm:py-3 rounded-xl sm:rounded-2xl transition-all backdrop-blur-xl flex items-center gap-2 sm:gap-3 whitespace-nowrap flex-shrink-0 ${
                     activeSection === i
                       ? 'bg-gradient-to-r from-purple-600 to-blue-600 text-white shadow-xl shadow-purple-500/30'
                       : theme === 'dark'
