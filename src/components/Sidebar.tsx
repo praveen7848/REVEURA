@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
-import { motion } from 'framer-motion';
+import { motion, AnimatePresence } from 'framer-motion';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import Image from 'next/image';
@@ -16,7 +16,9 @@ import {
   Sparkles,
   Gamepad2,
   Image as ImageIcon,
-  Trophy
+  Trophy,
+  Menu,
+  X
 } from 'lucide-react';
 import { useTheme } from '@/contexts/ThemeContext';
 import { useLanguage } from '@/contexts/LanguageContext';
@@ -40,8 +42,9 @@ export default function Sidebar() {
   const pathname = usePathname();
   const { theme } = useTheme();
   const { t } = useLanguage();
-  const { playNavigationSound, playWaterDropSound } = useSoundEffects();
+  const { playNavigationSound, playWaterDropSound, playClickSound } = useSoundEffects();
   const [dailyQuote, setDailyQuote] = useState<string>('');
+  const [isOpen, setIsOpen] = useState(false);
 
   useEffect(() => {
     // Get a quote based on the day to ensure consistency throughout the day
@@ -59,17 +62,56 @@ export default function Sidebar() {
     }
   }, []);
 
+  // Close sidebar when route changes on mobile
+  useEffect(() => {
+    setIsOpen(false);
+  }, [pathname]);
+
   return (
-    <motion.aside
-      initial={{ x: -100, opacity: 0 }}
-      animate={{ x: 0, opacity: 1 }}
-      transition={{ duration: 0.5 }}
-      className={`fixed left-0 top-0 h-screen w-64 border-r flex flex-col z-50 overflow-hidden transition-colors duration-300 ${
-        theme === 'dark'
-          ? 'bg-gradient-to-b from-black via-neutral-900 to-black border-red-900/30'
-          : 'bg-gradient-to-b from-white via-gray-50 to-gray-100 border-red-200'
-      }`}
-    >
+    <>
+      {/* Mobile Menu Button */}
+      <motion.button
+        whileTap={{ scale: 0.95 }}
+        onClick={() => {
+          setIsOpen(!isOpen);
+          playClickSound();
+        }}
+        className={`fixed top-4 left-4 z-[60] lg:hidden p-3 rounded-xl transition-all duration-300 ${
+          theme === 'dark'
+            ? 'bg-neutral-900/90 border border-red-900/30 text-white'
+            : 'bg-white/90 border border-red-200 text-gray-900'
+        } backdrop-blur-sm shadow-lg`}
+      >
+        {isOpen ? <X size={24} /> : <Menu size={24} />}
+      </motion.button>
+
+      {/* Mobile Overlay */}
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            onClick={() => setIsOpen(false)}
+            className="fixed inset-0 bg-black/50 z-40 lg:hidden backdrop-blur-sm"
+          />
+        )}
+      </AnimatePresence>
+
+      {/* Sidebar */}
+      <motion.aside
+        initial={{ x: -100, opacity: 0 }}
+        animate={{ 
+          x: isOpen ? 0 : -100, 
+          opacity: isOpen ? 1 : 0 
+        }}
+        transition={{ duration: 0.3, ease: 'easeInOut' }}
+        className={`fixed left-0 top-0 h-screen w-64 border-r flex flex-col z-50 overflow-hidden transition-colors duration-300 lg:translate-x-0 lg:opacity-100 ${
+          theme === 'dark'
+            ? 'bg-gradient-to-b from-black via-neutral-900 to-black border-red-900/30'
+            : 'bg-gradient-to-b from-white via-gray-50 to-gray-100 border-red-200'
+        }`}
+      >
       {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5 pointer-events-none">
         <Image
@@ -160,5 +202,6 @@ export default function Sidebar() {
         </motion.button>
       </div>
     </motion.aside>
+    </>
   );
 }

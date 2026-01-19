@@ -22,7 +22,7 @@ export default function DashboardLayout({
       <AnimatedBackground />
       <ParticlesBackground />
       <Sidebar />
-      <main className="ml-64 p-8 relative z-10">
+      <main className="lg:ml-64 p-4 sm:p-6 md:p-8 pt-20 lg:pt-8 relative z-10">
         {children}
       </main>
     </div>

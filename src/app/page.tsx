@@ -187,9 +187,9 @@ export default function AuthPage() {
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.6 }}
-        className="relative z-10 w-full max-w-5xl mx-4 lg:mx-auto"
+        className="relative z-10 w-full max-w-5xl mx-4 px-4 sm:px-6 lg:mx-auto"
       >
-        <div className="grid lg:grid-cols-2 gap-6 items-center">
+        <div className="grid lg:grid-cols-2 gap-4 sm:gap-6 items-center">
           {/* Left Side - Image Section */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
@@ -278,15 +278,15 @@ export default function AuthPage() {
             transition={{ duration: 0.8, delay: 0.2 }}
             className="w-full"
           >
-            <div className="bg-gradient-to-br from-neutral-900 to-black rounded-2xl shadow-2xl border border-red-900/30 backdrop-blur-xl p-6 lg:p-8">
+            <div className="bg-gradient-to-br from-neutral-900 to-black rounded-2xl shadow-2xl border border-red-900/30 backdrop-blur-xl p-4 sm:p-6 lg:p-8">
               {/* Logo */}
               <motion.div
                 initial={{ scale: 0.8, opacity: 0 }}
                 animate={{ scale: 1, opacity: 1 }}
                 transition={{ delay: 0.4 }}
-                className="text-center mb-6"
+                className="text-center mb-4 sm:mb-6"
               >
-                <h1 className="text-2xl font-bold bg-gradient-to-r from-red-500 via-red-400 to-neutral-300 bg-clip-text text-transparent"
+                <h1 className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-red-500 via-red-400 to-neutral-300 bg-clip-text text-transparent"
                     style={{ fontFamily: "'Playfair Display', serif" }}>
                   REVEURA
                 </h1>
@@ -296,7 +296,7 @@ export default function AuthPage() {
               </motion.div>
 
               {/* Toggle Buttons */}
-              <div className="flex gap-2 mb-6 bg-black/50 p-1.5 rounded-2xl border border-neutral-800">
+              <div className="flex gap-2 mb-4 sm:mb-6 bg-black/50 p-1.5 rounded-2xl border border-neutral-800">
                 <motion.button
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}

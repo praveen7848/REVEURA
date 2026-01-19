@@ -93,10 +93,10 @@ export default function Dashboard() {
         </motion.div>
 
         {/* Quick Stats */}
-        <motion.div variants={item} className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
+        <motion.div variants={item} className="grid grid-cols-2 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4">
           <motion.div
             whileHover={{ scale: 1.02, y: -4 }}
-            className="mood-selector bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-6 shadow-xl backdrop-blur-sm relative overflow-hidden group"
+            className="mood-selector bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-4 sm:p-6 shadow-xl backdrop-blur-sm relative overflow-hidden group"
           >
             <motion.div
               className="absolute inset-0 bg-gradient-to-r from-red-500/0 via-red-500/5 to-red-500/0"
@@ -129,65 +129,65 @@ export default function Dashboard() {
 
           <motion.div
             whileHover={{ scale: 1.02, y: -4 }}
-            className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-6 shadow-xl"
+            className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-4 sm:p-6 shadow-xl"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
-                <TrendingUp className="w-6 h-6 text-red-500" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
+                <TrendingUp className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
               </div>
               <motion.div animate={{ y: [0, -3, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-                <BarChart3 className="w-7 h-7 text-red-400" />
+                <BarChart3 className="w-6 h-6 sm:w-7 sm:h-7 text-red-400" />
               </motion.div>
             </div>
-            <h3 className="text-black dark:text-white mb-2" style={{ fontFamily: "var(--font-body)", fontSize: "var(--font-body-sm)" }}>Habits Today</h3>
-            <p className="text-white font-bold" style={{ fontFamily: "var(--font-heading)", fontSize: "var(--font-heading-sm)" }}>
+            <h3 className="text-black dark:text-white mb-2 text-xs sm:text-sm" style={{ fontFamily: "var(--font-body)" }}>Habits Today</h3>
+            <p className="text-white font-bold text-base sm:text-lg" style={{ fontFamily: "var(--font-heading)" }}>
               {completedHabitsToday}/{totalHabitsToday}
             </p>
           </motion.div>
 
           <motion.div
             whileHover={{ scale: 1.02, y: -4 }}
-            className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-6 shadow-xl"
+            className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-4 sm:p-6 shadow-xl"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
-                <Award className="w-6 h-6 text-red-500" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
+                <Award className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
               </div>
               <motion.div animate={{ rotate: [0, 10, -10, 0] }} transition={{ duration: 2, repeat: Infinity }}>
-                <Trophy className="w-7 h-7 text-yellow-400" />
+                <Trophy className="w-6 h-6 sm:w-7 sm:h-7 text-yellow-400" />
               </motion.div>
             </div>
-            <h3 className="text-black dark:text-white mb-2" style={{ fontFamily: "var(--font-body)", fontSize: "var(--font-body-sm)" }}>Current Streak</h3>
-            <p className="text-white font-bold" style={{ fontFamily: "var(--font-heading)", fontSize: "var(--font-heading-sm)" }}>{currentStreak} days</p>
+            <h3 className="text-black dark:text-white mb-2 text-xs sm:text-sm" style={{ fontFamily: "var(--font-body)" }}>Current Streak</h3>
+            <p className="text-white font-bold text-base sm:text-lg" style={{ fontFamily: "var(--font-heading)" }}>{currentStreak} days</p>
           </motion.div>
 
           <motion.div
             whileHover={{ scale: 1.02, y: -4 }}
-            className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-6 shadow-xl"
+            className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-4 sm:p-6 shadow-xl"
           >
             <div className="flex items-center justify-between mb-4">
-              <div className="w-12 h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
-                <Moon className="w-6 h-6 text-red-500" />
+              <div className="w-10 h-10 sm:w-12 sm:h-12 bg-red-500/20 rounded-xl flex items-center justify-center">
+                <Moon className="w-5 h-5 sm:w-6 sm:h-6 text-red-500" />
               </div>
               <motion.div animate={{ opacity: [0.5, 1, 0.5] }} transition={{ duration: 2, repeat: Infinity }}>
-                <Bed className="w-7 h-7 text-purple-400" />
+                <Bed className="w-6 h-6 sm:w-7 sm:h-7 text-purple-400" />
               </motion.div>
             </div>
-            <h3 className="text-black dark:text-white mb-2" style={{ fontFamily: "var(--font-body)", fontSize: "var(--font-body-sm)" }}>Avg Sleep</h3>
-            <p className="text-white font-bold" style={{ fontFamily: "var(--font-heading)", fontSize: "var(--font-heading-sm)" }}>{avgSleep}h</p>
+            <h3 className="text-black dark:text-white mb-2 text-xs sm:text-sm" style={{ fontFamily: "var(--font-body)" }}>Avg Sleep</h3>
+            <p className="text-white font-bold text-base sm:text-lg" style={{ fontFamily: "var(--font-heading)" }}>{avgSleep}h</p>
           </motion.div>
         </motion.div>
 
         {/* Mood Tracker */}
-        <motion.div variants={item} className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-6 shadow-xl">
-          <div className="flex items-center justify-between mb-6">
-            <h2 className="font-bold text-white" style={{ fontFamily: "var(--font-heading)", fontSize: "var(--font-heading-md)" }}>
+        <motion.div variants={item} className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-4 sm:p-6 shadow-xl">
+          <div className="flex items-center justify-between mb-4 sm:mb-6">
+            <h2 className="font-bold text-white text-base sm:text-lg" style={{ fontFamily: "var(--font-heading)" }}>
               How are you feeling today?
             </h2>
-            <Calendar className="w-5 h-5 text-black dark:text-white" />
+            <Calendar className="w-4 h-4 sm:w-5 sm:h-5 text-black dark:text-white" />
           </div>
 
-          <div className="grid grid-cols-5 gap-3">
+          <div className="grid grid-cols-3 sm:grid-cols-5 gap-2 sm:gap-3">
             {moods.map((mood) => {
               const MoodIcon = getMoodIcon(mood.icon);
               return (
@@ -199,7 +199,7 @@ export default function Dashboard() {
                     playClickSound();
                     setSelectedMood(mood.value);
                   }}
-                  className={`flex flex-col items-center gap-2 p-4 rounded-xl transition-all duration-300 ${
+                  className={`flex flex-col items-center gap-1 sm:gap-2 p-3 sm:p-4 rounded-xl transition-all duration-300 ${
                     selectedMood === mood.value || (todayMood?.mood === mood.value && !selectedMood)
                       ? `bg-gradient-to-br ${mood.gradient} shadow-lg shadow-red-900/50 border-2 border-white/30`
                       : theme === 'dark'
@@ -207,19 +207,19 @@ export default function Dashboard() {
                       : 'bg-white/80 border-2 border-gray-200 hover:border-red-500/50'
                   }`}
                 >
-                  <MoodIcon size={24} className="text-white" />
-                  <span className="text-xs font-medium text-white">{mood.label}</span>
+                  <MoodIcon size={20} className="text-white sm:w-6 sm:h-6" />
+                  <span className="text-[10px] sm:text-xs font-medium text-white">{mood.label}</span>
                 </motion.button>
               );
             })}
           </div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-6">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-4 sm:gap-6">
           {/* Recent Journal Entries */}
-          <motion.div variants={item} className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-6 shadow-xl">
-            <div className="flex items-center justify-between mb-6">
-              <h2 className="text-xl font-bold text-white" style={{ fontFamily: "var(--font-heading)" }}>
+          <motion.div variants={item} className="bg-gradient-to-br from-neutral-900 to-black border border-red-900/30 rounded-2xl p-4 sm:p-6 shadow-xl">
+            <div className="flex items-center justify-between mb-4 sm:mb-6">
+              <h2 className="text-lg sm:text-xl font-bold text-white" style={{ fontFamily: "var(--font-heading)" }}>
                 Recent Journals
               </h2>
               <Link href="/journal" onClick={() => playClickSound()}>

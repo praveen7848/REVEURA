@@ -60,6 +60,13 @@ export const metadata: Metadata = {
   description: "Experience premium wellness with cutting-edge technology and mood-enhancing design",
 };
 
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 5,
+  userScalable: true,
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
