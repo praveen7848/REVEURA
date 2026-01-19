@@ -100,14 +100,15 @@ export default function Sidebar() {
 
       {/* Sidebar */}
       <motion.aside
-        initial={{ x: -100, opacity: 0 }}
+        initial={{ x: 0, opacity: 1 }}
         animate={{ 
-          x: isOpen ? 0 : -100, 
-          opacity: isOpen ? 1 : 0 
+          x: 0, 
+          opacity: 1 
         }}
         transition={{ duration: 0.3, ease: 'easeInOut' }}
-        className={`fixed left-0 top-0 h-screen w-64 border-r flex flex-col z-50 overflow-hidden transition-colors duration-300 lg:translate-x-0 lg:opacity-100 ${
-          theme === 'dark'
+        className={`fixed left-0 top-0 h-screen w-64 border-r flex flex-col z-50 overflow-hidden transition-colors duration-300
+          ${isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'}
+          ${theme === 'dark'
             ? 'bg-gradient-to-b from-black via-neutral-900 to-black border-red-900/30'
             : 'bg-gradient-to-b from-white via-gray-50 to-gray-100 border-red-200'
         }`}
